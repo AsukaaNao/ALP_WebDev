@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('order_alcohols', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('alcohol_id');
+            $table->foreign('alcohol_id')
+                ->references('id')
+                ->on('alcohols')
+                ->onDelete('cascade');
+            $table->integer('amount');
         });
     }
 

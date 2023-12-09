@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('foods', function (Blueprint $table) {
+        Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('categories')
+                ->on('users')
                 ->onDelete('cascade');
             $table->string('name');
             $table->string('description');
-            $table->integer('price');
-            $table->string('photo');
+            $table->integer('total');
+            $table->timestamp('transaction_time')->nullable();
+            $table->string('payment');
         });
     }
 
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('food');
+        Schema::dropIfExists('expenses');
     }
 };
