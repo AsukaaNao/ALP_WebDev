@@ -17,4 +17,8 @@ class Expense extends Model
         'transaction_time',
         'payment'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,4 +14,12 @@ class Order_alcohol extends Model
         'alcohol_id',
         'amount'
     ];
+
+    public function order() {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function alcohol() {
+        return $this->belongsTo(Alcohol::class);
+    }
 }

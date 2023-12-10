@@ -15,4 +15,8 @@ class Supplier extends Model
         'phone',
         'email'
     ];
+
+    public function alcohol_supplier() {
+        return $this->hasMany(Alcohol_supplier::class);
+    }
 }

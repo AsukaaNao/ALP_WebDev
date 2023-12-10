@@ -14,4 +14,12 @@ class Alcohol_supplier extends Model
         'supplier_id',
         'buyprice'
     ];
+
+    public function alcohol() {
+        return $this->belongsTo(Alcohol::class);
+    }
+
+    public function supplier() {
+        return $this->belongsTo(Supplier::class);
+    }
 }

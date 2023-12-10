@@ -16,4 +16,12 @@ class Alcohol extends Model
         'price',
         'photo'
     ];
+
+    public function order_alcohols() {
+        return $this->hasMany(Order_alcohols::class);
+    }
+
+    public function alcohol_supplier() {
+        return $this->hasMany(Alcohol_supplier::class);
+    }
 }

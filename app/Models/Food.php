@@ -16,4 +16,12 @@ class Food extends Model
         'price',
         'photo'
     ];
+
+    public function order_alcohols() {
+        return $this->hasMany(Order_alcohols::class);
+    }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }

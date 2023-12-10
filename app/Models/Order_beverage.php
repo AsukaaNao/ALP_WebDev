@@ -14,4 +14,12 @@ class Order_beverage extends Model
         'beverage_id',
         'amount'
     ];
+
+    public function order() {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function beverage() {
+        return $this->belongsTo(Beverage::class);
+    }
 }

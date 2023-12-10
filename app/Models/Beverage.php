@@ -15,4 +15,8 @@ class Beverage extends Model
         'price',
         'photo'
     ];
+
+    public function order_beverages() {
+        return $this->hasMany(Order_beverage::class);
+    }
 }
